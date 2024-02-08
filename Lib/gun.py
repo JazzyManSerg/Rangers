@@ -10,4 +10,3 @@ class Gun():
         self.rect.bottom=self.screen_rect.bottom
     def output(self):
         self.screen.blit(self.image,self.rect)
-            
