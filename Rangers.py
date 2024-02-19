@@ -1,17 +1,16 @@
-import sys
 import pygame
 from Lib.gun import Gun
+import Controls
 def run():
     pygame.init()
-    screen=pygame.display.set_mode((1200,800))
+    screen=pygame.display.set_mode((700,800))
     pygame.display.set_caption("Ranger")
     bg_color = (0,0,0)
     gun = Gun(screen)
     print()
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        Controls.events(gun)
+        gun.update_gun()
         screen.fill(bg_color)
         gun.output()
         pygame.display.flip()
