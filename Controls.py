@@ -1,5 +1,6 @@
 import pygame,sys
 from bullet import Bullet
+from ino import Ino
 def events(screen,gun,bullets):
     for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -20,9 +21,28 @@ def events(screen,gun,bullets):
                 elif event.key == pygame.K_SPACE:
                      gun.mSpace = False         
 
-def update(screen,bg_color,gun,bullets):
+def update(screen,bg_color,gun,inos,bullets):
      screen.fill(bg_color)
      for bullet in bullets.sprites():
           bullet.draw_bullet()
      gun.output()
+     inos.draw(screen)
      pygame.display.flip() 
+     
+
+def update_bullet(bullets):
+     bullets.update()
+     print(len(bullets))
+     for bullet in bullets.copy():
+          if bullet.rect.bottom<=0:
+               bullets.remove(bullet)
+def create_army(screen,inos): 
+     ino=Ino(screen)
+     ino_width=ino.rect.width
+     number_ino_x=int((700-2*ino_width)/ino_width) 
+     for ino_number in range(number_ino_x):
+          ino=Ino(screen)
+          ino.x=ino_width+ino_width*ino_number
+          ino.rect=ino.x
+          inos.add(ino)
+
