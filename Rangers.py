@@ -17,4 +17,5 @@ def run():
         bullets.update()
         Controls.update(screen,bg_color,gun,inos,bullets)
         Controls.update_bullet(bullets)
+        Controls.update_inos(inos)
 run()

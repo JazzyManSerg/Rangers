@@ -10,5 +10,10 @@ class Ino(pygame.sprite.Sprite):
         self.rect.y=self.rect.height
         self.x=float(self.rect.x)
         self.y=float(self.rect.y)
+    
     def draw(self):
         self.screen.blit(self.image,self.rect)    
+    
+    def update(self):
+        self.y +=0.1
+        self.rect.y = self.y

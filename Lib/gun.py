@@ -12,8 +12,10 @@ class Gun():
         self.mRight = False
         self.mLeft = False
         self.mSpace = False
+    
     def output(self):
         self.screen.blit(self.image,self.rect)
+    
     def update_gun(self):
         if self.mRight and self.rect.right < self.screen_rect.right:
             self.center += 1.5
